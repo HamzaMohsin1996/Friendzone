@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Video Call</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    .container-fluid {
+        padding-top: 20px;
+    }
+    .video-container {
+        display: flex;
+        justify-content: center;
+        height: calc(100vh - 160px);
+    }
+    .video-wrapper {
+        position: relative;
+        margin-right: 5px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .video-wrapper:last-child {
+        margin-right: 0;
+    }
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .controls-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .control-button {
+        margin: 0 5px;
+    }
+    .avatar {
+    width: 150px;
+    height: 300px; /* Increased height for the body */
+    position: relative;
+}
+
+.head {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eyes {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.nose {
+    width: 8px;
+    height: 8px;
+    background-color: #f39c12;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mouth {
+    width: 40px;
+    height: 10px;
+    background-color: #f39c12;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.left-arm, .right-arm {
+    width: 10px;
+    height: 80px;
+    background-color: #3498db;
+    position: absolute;
+}
+
+.left-arm {
+    left: -20px;
+    top: 40px;
+    transform: rotate(30deg);
+}
+
+.right-arm {
+    right: -20px;
+    top: 40px;
+    transform: rotate(-30deg);
+}
+
+.shoulders {
+    width: 100px;
+    height: 20px;
+    background-color: #3498db;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Online Video Call</h2>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="video-container">
+                <div class="avatar">
+                    <div class="head">
+                        <div class="eyes"></div>
+                        <div class="nose"></div>
+                        <div class="mouth"></div>
+                    </div>
+                    <div class="body">
+                        <div class="left-arm"></div>
+                        <div class="right-arm"></div>
+                        <div class="shoulders"></div>
+                    </div>
+                </div>
+                <div class="video-wrapper">
+                    <video id="localVideo" autoplay muted style="display: none;"></video>
+                    <img id="profileImage" src="./virtualhug.jpg" alt="Profile Image" style="max-width: 150px; max-height: 100%;">
+                </div>
+                <div class="video-wrapper">
+                    <img id="profileImage" src="./person1.gif" alt="Profile Image" style="max-width: 150px; max-height: 100%;">
+                  
+                </div>
+            </div>
+            <div class="controls-container">
+                <button class="btn btn-primary control-button" id="videoButton">Video On</button>
+                <button class="btn btn-primary control-button" id="audioButton">Audio On</button>
+                <button class="btn btn-primary control-button" id="screenShareButton">Screen Share</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Add event listeners for control buttons
+    const videoButton = document.getElementById('videoButton');
+    const audioButton = document.getElementById('audioButton');
+    const screenShareButton = document.getElementById('screenShareButton');
+    const localVideo = document.getElementById('localVideo');
+    const remoteVideo = document.getElementById('remoteVideo');
+    const profileImage = document.getElementById('profileImage');
+
+    videoButton.addEventListener('click', toggleVideo);
+    audioButton.addEventListener('click', toggleAudio);
+    screenShareButton.addEventListener('click', toggleScreenShare);
+
+    // Functions to handle button clicks
+    function toggleVideo() {
+        if (localVideo.srcObject) {
+            localVideo.srcObject.getTracks().forEach(track => track.stop());
+            localVideo.srcObject = null;
+            localVideo.style.display = 'none';
+            profileImage.style.display = 'block';
+            videoButton.textContent = 'Video On';
+        } else {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    localVideo.srcObject = stream;
+                    localVideo.style.display = 'block';
+                    profileImage.style.display = 'none';
+                    videoButton.textContent = 'Video Off';
+                })
+                .catch(err => console.error('Error accessing camera:', err));
+        }
+    }
+
+    function toggleAudio() {
+        // Implement logic to toggle audio stream
+        console.log('Toggle audio');
+    }
+
+    function toggleScreenShare() {
+        // Implement logic to start/stop screen sharing
+        console.log('Toggle screen share');
+    }
+</script>
+
+</body>
+</html>
