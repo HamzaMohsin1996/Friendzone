@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Home</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="./Assets/Css/bootstrap.min.css" >
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />      <!-- Font Awesome -->
+      <link rel="stylesheet" href="./Assets/Css/all.min.css">
+      <link rel="stylesheet" href="./Assets/Css/owl.carousel.min.css">
+      <link rel="stylesheet" href="./Assets/Css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="./Assets/Css/jquery-ui.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="./Assets/Css/styles.css">
+   </head>
+   <body>
+ <div class="header">
+    <h2>Online Video Call</h2>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="coffee-shop">
+                <div id="alex-avatar" class="avatar"></div>
+                <div id="ben-avatar" class="avatar"></div>
+                <div id="coffee-cup" class="object"></div>
+              </div>
+              
+              <div class="conversation-window">
+                <div class="chat-log" id="chat-log"></div>
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+              </div>
+              
+            <div class="video-container">
+               <div class="coffee-break">
+                  <!-- Avatar for the person holding a cup of coffee -->
+                  <div class="avatar">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="left-arm"></div>
+                    <div class="right-arm"></div>
+                    <div class="cup"></div> <!-- Cup of coffee -->
+                  </div>
+                
+                  <!-- Avatar for the friend -->
+                  <div class="avatar friend">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="left-arm"></div>
+                    <div class="right-arm"></div>
+                  </div>
+                </div>
+                
+                <div class="video-wrapper">
+                    <video id="localVideo" autoplay muted style="display: none;"></video>
+                    <img id="profileImage" src="./virtualhug.jpg" alt="Profile Image" style="max-width: 150px; max-height: 100%;">
+                </div>
+                <div class="video-wrapper">
+                    <img id="profileImage" src="./person1.gif" alt="Profile Image" style="max-width: 150px; max-height: 100%;">
+                  
+                </div>
+            </div>
+            <div class="controls-container">
+                <button class="btn btn-primary control-button" id="videoButton">Video On</button>
+                <button class="btn btn-primary control-button" id="audioButton">Audio On</button>
+                <button class="btn btn-primary control-button" id="screenShareButton">Screen Share</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <!-- Bootstrap JS -->
+      <script src="./Assets/Js/jquery-3.5.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="./Assets/Js/popper.min.js"></script>
+      <script src="./Assets/Js/bootstrap.bundle.min.js" ></script>
+      <script src="./Assets/Js/owl.carousel.min.js"></script>
+      <script src="./Assets/Js/custom.js"></script>
+   </body>
+</html>

@@ -1,0 +1,172 @@
+
+    body {
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    .container-fluid {
+        padding-top: 20px;
+    }
+    .video-container {
+        display: flex;
+        justify-content: center;
+        height: calc(100vh - 160px);
+    }
+    .video-wrapper {
+        position: relative;
+        margin-right: 5px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .video-wrapper:last-child {
+        margin-right: 0;
+    }
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .controls-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .control-button {
+        margin: 0 5px;
+    }
+    .coffee-break {
+        position: relative;
+        width: 600px; /* Adjust the width of the coffee break area */
+        height: 300px; /* Adjust the height of the coffee break area */
+      }
+      
+      .avatar {
+        position: absolute;
+      }
+      
+      .avatar .head {
+        width: 60px;
+        height: 60px;
+        background-color: #fdd;
+        border-radius: 50%;
+      }
+      
+      .avatar .body {
+        width: 60px;
+        height: 100px;
+        background-color: #fdd;
+      }
+      
+      .avatar .left-arm, .avatar .right-arm {
+        width: 10px;
+        height: 60px;
+        background-color: #fdd;
+      }
+      
+      .avatar .left-arm {
+        left: -20px;
+        transform-origin: bottom right;
+        transform: rotate(20deg);
+      }
+      
+      .avatar .right-arm {
+        right: -20px;
+        transform-origin: bottom left;
+        transform: rotate(-20deg);
+      }
+      
+      /* Styling for the cup of coffee */
+      .avatar .cup {
+        width: 30px; /* Adjust the width of the cup */
+        height: 40px; /* Adjust the height of the cup */
+        background-color: #964B00; /* Brown color for the cup */
+        border-radius: 50px 50px 0 0; /* Round the top edges */
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1; /* Ensure cup appears above body */
+      }
+      
+      .avatar.friend {
+        left: 150px; /* Adjust the position of the friend avatar */
+        top: 100px; /* Adjust the position of the friend avatar */
+      }
+      
+
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        background-color: #3498db;
+        border-radius: 50%;
+        position: absolute;
+      }
+      
+      .object {
+        width: 50px;
+        height: 50px;
+        background-color: #964B00; /* Brown color for coffee cup */
+        position: absolute;
+      }
+      
+      .conversation-window {
+        width: 300px;
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+      
+      .chat-log {
+        height: 200px;
+        overflow-y: scroll;
+      }
+      
+      /* Add more CSS for background image changes and table/chair animations */
+      
+
+
+      .coffee-shop {
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../Images/coffeeshop.jpeg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        background-repeat: no-repeat;
+
+      }
+      
+      .table, .chair {
+        width: 50px;
+        height: 50px;
+        background-color: #8B4513; /* Brown color for tables and chairs */
+        position: absolute;
+        transition: transform 1s ease-in-out; /* Animation transition */
+      }
+      
+      /* Example CSS for table animation */
+      .table {
+        left: 20%;
+        top: 30%;
+      }
+      
+      /* Example CSS for chair animation */
+      .chair {
+        left: 25%;
+        top: 40%;
+      }
+      
+      /* CSS to change table and chair positions when clicked */
+      .moved {
+        transform: translateX(100px); /* Adjust the desired movement */
+      }
